@@ -77,6 +77,7 @@ class LoginRequest(BaseModel):
 class ProductRequest(BaseModel):
     farmer_id: str
     farmer_name: str
+    phone: Optional[str] = ""
     crop_name: str
     price: float
     quantity: float
@@ -133,6 +134,7 @@ async def add_product(req: ProductRequest):
     product = {
         "farmer_id": req.farmer_id,
         "farmer_name": req.farmer_name,
+        "phone": req.phone,
         "crop_name": req.crop_name,
         "price": req.price,
         "quantity": req.quantity,
